@@ -35,5 +35,14 @@ var config = {
 * showSymbol = true or false, show or hide apex symbol around quote.
 * fadeSpeed = How fast (in milliseconds) to fade out and back in when changing quotes.
 
+# Example Screenshot
+* With symbol
+
+![alt text](https://github.com/Jacopo1891/MMM-RandomQuotes/blob/master/screen/01-quote_apex.png)
+
+* Without symbol
+
+![alt text](https://github.com/Jacopo1891/MMM-RandomQuotes/blob/master/screen/02-quote_without_apex.png)
+
 # Suggestions
 Please feel free to raise an issue on GitHub for any features you would like to see or usage issues you experience and I will endeavour to address them.
