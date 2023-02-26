@@ -1,6 +1,6 @@
 # Module: Random quotes
 
-A module for the MagicMirror that displays random quote from various authorship using from Paperquote's api.
+A module for the MagicMirror that displays random quote from various authorship using Paperquote's api.
 
 # Installation
 Navigate into your MagicMirror's ~/MagicMirror/modules folder and execute git clone https://github.com/Jacopo1891/MMM-RandomQuotes.git
