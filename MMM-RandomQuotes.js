@@ -7,6 +7,8 @@ Module.register("MMM-RandomQuotes", {
 		fadeSpeed: 4000,
 		tags: [],
 		apiKey: "", // create on paperquotes.com
+		quoteSize: "M", // S M L - Default M
+		authorSize: "S"	// S M L - Default S 
 	},
 	quote: "",
 
@@ -67,10 +69,12 @@ Module.register("MMM-RandomQuotes", {
 		const wrapper = document.createElement("div");
 
 		var quoteLineDiv = document.createElement('div');
-		quoteLineDiv.className = "thin medium bright pre-line";
+		var quoteFontSize = this.getFontSize(this.config.quoteSize);
+		quoteLineDiv.className = "thin bright pre-line " + quoteFontSize;
 
 		var authorLineDiv = document.createElement('div');
-		authorLineDiv.className = "thin small bright pre-line";
+		var authorFontSize = this.getFontSize(this.config.authorSize);
+		authorLineDiv.className = "thin bright pre-line " + authorFontSize;
 
 		if (this.config.showSymbol) {
 			var symbol = document.createElement("span");
@@ -100,4 +104,13 @@ Module.register("MMM-RandomQuotes", {
 		wrapper.innerHTML += container.innerHTML;
 		return wrapper;
 	},
+
+	getFontSize : function(size){
+		if(size == "S")
+			return "small";
+		if(size == "L")
+			return "large";
+		else
+			return "medium";
+	}
 });

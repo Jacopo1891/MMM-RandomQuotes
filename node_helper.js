@@ -11,7 +11,7 @@ module.exports = NodeHelper.create({
     var language = config.language !== undefined ? "&lang=" + config.language : "&lang=en";
     var tags = this.isLanguageEN() && config.tags !== undefined && config.tags.length > 0 ? "&tags=" + config.tags.join() : "";
     var curated = this.isLanguageEN() ? "" : "&curated=1";
-    var url = "https://api.paperquotes.com/apiv1/quotes/?limit=100" + curated + language + tags;
+    var url = "https://api.paperquotes.com/apiv1/quotes/?limit=200" + curated + language + tags;
     try {
       const response = await fetch(url, {
         headers: {

@@ -23,6 +23,8 @@ var config = {
                 updateInterval: 30,
                 showSymbol: true,
                 fadeSpeed: 4000,
+                quoteSize: "M", // S M L - Default M
+		        authorSize: "S"	// S M L - Default S 
             },
         }
     ]
@@ -34,6 +36,8 @@ var config = {
 * updateInterval = Update interval in seconds.
 * showSymbol = true or false, show or hide apex symbol around quote.
 * fadeSpeed = How fast (in milliseconds) to fade out and back in when changing quotes.
+* quoteSize = Set the quote's font size (small, medium, large)
+* authorSize = Set the author's font size (small, medium, large)
 
 # Example Screenshot
 * With symbol
