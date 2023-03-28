@@ -24,7 +24,7 @@ var config = {
                 showSymbol: true,
                 fadeSpeed: 4000,
                 quoteSize: "M", // S M L - Default M
-		        authorSize: "S"	// S M L - Default S 
+		authorSize: "S"	// S M L - Default S 
             },
         }
     ]
