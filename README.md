@@ -50,3 +50,10 @@ var config = {
 
 # Suggestions
 Please feel free to raise an issue on GitHub for any features you would like to see or usage issues you experience and I will endeavour to address them.
+
+# Buy me a coffee
+Find it useful? Please consider buying me or other contributors a coffee.
+
+<a href="https://www.buymeacoffee.com/jacopo1891d">
+<img style="height: 51px; width: 181px; max-width: 100%;" alt="blue-button" src="https://github.com/Jacopo1891/MMM-GoogleTrafficTimes/assets/5861330/43f41b8d-13e5-4711-877d-cab090bc56b0">
+</a>
