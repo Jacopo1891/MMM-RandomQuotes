@@ -1,0 +1,20 @@
+{
+  "name": "mmm-randomquotes",
+  "version": "1.0.0",
+  "description": "Module for MagicMirror² to display a random quote from various authorship using Ninjas API.",
+  "main": "MMM-RandomQuotes.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jacopo1891/MMM-RandomQuotes.git"
+  },
+  "keywords": [
+    "MagicMirror",
+    "quotes"
+  ],
+  "author": "Jacopo1891",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Jacopo1891/MMM-RandomQuotes/issues"
+  },
+  "homepage": "https://github.com/Jacopo1891/MMM-RandomQuotes#readme"
+}
