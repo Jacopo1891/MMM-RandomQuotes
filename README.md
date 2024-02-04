@@ -34,13 +34,13 @@ let config = {
 }
 ```
 
-- apiKey = your api-ninjas.com key as described in the relevant section of this readme
-- category = You can filter quotes by category, if is not in this list will not work. [age, alone, amazing, anger, architecture, art, attitude, beauty, best, birthday, business, car, change, communication, computers, cool, courage, dad, dating, death, design, dreams, education, environmental, equality, experience, failure, faith, family, famous, fear, fitness, food, forgiveness, freedom, friendship, funny, future, god, good, government, graduation, great, happiness, health, history, home, hope, humor, imagination, inspirational, intelligence, jealousy, knowledge, leadership, learning, legal, life, love, marriage, medical, men, mom, money, morning, movies, success]
-- updateInterval = Update interval in seconds. (default 1 minute)
-- showSymbol = true or false, show or hide apex symbol around quote.
-- fadeSpeed = How fast (in milliseconds) to fade out and back in when changing quotes.
-- quoteSize = Set the quote's font size (small, medium, large)
-- authorSize = Set the author's font size (small, medium, large)
+- `apiKey`: your api-ninjas.com key as described in the relevant section of this readme
+- `category`: You can filter quotes by category, if is not in this list will not work. `[age, alone, amazing, anger, architecture, art, attitude, beauty, best, birthday, business, car, change, communication, computers, cool, courage, dad, dating, death, design, dreams, education, environmental, equality, experience, failure, faith, family, famous, fear, fitness, food, forgiveness, freedom, friendship, funny, future, god, good, government, graduation, great, happiness, health, history, home, hope, humor, imagination, inspirational, intelligence, jealousy, knowledge, leadership, learning, legal, life, love, marriage, medical, men, mom, money, morning, movies, success]`
+- `updateInterval`: Update interval in seconds. (default 1 minute)
+- `showSymbol`: true or false, show or hide apex symbol around quote.
+- `fadeSpeed`: How fast (in milliseconds) to fade out and back in when changing quotes.
+- `quoteSize`: Set the quote's font size (small, medium, large)
+- `authorSize`: Set the author's font size (small, medium, large)
 
 ## Example Screenshot
 
