@@ -1,5 +1,7 @@
-# Module: Random quotes
+# Update: OBSOLETE
+Paperquote's api stop working. Use master branch.
 
+# Module: Random quotes
 A module for the MagicMirror that displays random quote from various authorship using Paperquote's api.
 
 # Installation
