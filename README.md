@@ -1,12 +1,11 @@
 # Module: Random quotes
-
-A module for the MagicMirror that displays random quote from various authorship using Paperquote's api.
+A module for the MagicMirror that displays random quote from various authorship using API Ninjas's api.
 
 # Installation
 Navigate into your MagicMirror's ~/MagicMirror/modules folder and execute git clone https://github.com/Jacopo1891/MMM-RandomQuotes.git
 
-# Get Paperquote's api key
-Go to https://paperquotes.com/ and create a new account. At this time, the free subscription allows you to make 500 calls a day.
+# Get API Ninjas's api key
+Go to https://api-ninjas.com and create a new account. Today (2024/02/04), the free subscription allows you to make 10000 calls every month.
 
 # Using the module
 To use this module, add it to the modules array in the config/config.js file:
@@ -15,25 +14,23 @@ var config = {
     modules: [
         {
             module: 'MMM-RandomQuotes',
-            position: 'lower_third',
+            position: 'bottom_center',
             config: {
                 apiKey: 'YOUR_KEY',
-                language: 'en',
-                tags: [],
-                updateInterval: 30,
+                category: "",
+                updateInterval: 60,
                 showSymbol: true,
                 fadeSpeed: 4000,
                 quoteSize: "M", // S M L - Default M
-		authorSize: "S"	// S M L - Default S 
+		        authorSize: "S"	// S M L - Default S
             },
         }
     ]
 }
 ```
-* apiKey = your paperquotes key as described in the relevant section of this readme
-* language = Default is english (paperquote's data are completed) [en, it, fr, de, pt, ru, es, tr, uk, he, ar, be, te]. Tested with english and italian.
-* tags = You can filter quotes by tags if language is english otherwise is ignored. ["calling", "money", "passion", "joblessness", "kingdom", "opportunities", "principles", "serving-god", "love", "purpose", "jobless", "people", "values", "worship", "life", "employment", "work", "service", "time", "god", "destiny"]
-* updateInterval = Update interval in seconds.
+* apiKey = your api-ninjas.com key as described in the relevant section of this readme
+* category = You can filter quotes by category, if is not in this list will not work. [age, alone, amazing, anger, architecture, art, attitude, beauty, best, birthday, business, car, change, communication, computers, cool, courage, dad, dating, death, design, dreams, education, environmental, equality, experience, failure, faith, family, famous, fear, fitness, food, forgiveness, freedom, friendship, funny, future, god, good, government, graduation, great, happiness, health, history, home, hope, humor, imagination, inspirational, intelligence, jealousy, knowledge, leadership, learning, legal, life, love, marriage, medical, men, mom, money, morning, movies, success]
+* updateInterval = Update interval in seconds. (default 1 minute)
 * showSymbol = true or false, show or hide apex symbol around quote.
 * fadeSpeed = How fast (in milliseconds) to fade out and back in when changing quotes.
 * quoteSize = Set the quote's font size (small, medium, large)

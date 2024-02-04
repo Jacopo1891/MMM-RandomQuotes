@@ -2,28 +2,27 @@ var self;
 Module.register("MMM-RandomQuotes", {
 	// Module config defaults.
 	defaults: {
-		updateInterval: 30000,
+		updateInterval: 60,
 		showSymbol: true,
 		fadeSpeed: 4000,
-		tags: [],
-		apiKey: "", // create on paperquotes.com
+		category: "",
+		apiKey: "", // create on API Ninjas
 		quoteSize: "M", // S M L - Default M
-		authorSize: "S"	// S M L - Default S 
+		authorSize: "S"	// S M L - Default S
 	},
-	quote: "",
 
-	getScripts: function () {
+	getScripts () {
 		return ["moment.js"];
 	},
 
-	getStyles: function () {
+	getStyles () {
 		return ["MMM-RandomQuotes.css", "font-awesome.css"];
 	},
 
 	// Override start method.
-	start: function () {
+	start () {
 		self = this;
-		Log.info("Starting module: " + this.name);
+		Log.info(`Starting module: ${this.name}`);
 
 		this.lastQuoteIndex = -1;
 		this.lastIndexUsed = -1;
@@ -31,50 +30,49 @@ Module.register("MMM-RandomQuotes", {
 
 		var data = this.config;
 		this.sendSocketNotification("GET_RANDOM_QUOTE", data);
-		Log.info("Module " + this.name + ": notification send.");
+		Log.info(`Module ${this.name}: notification send.`);
 
 		setInterval(() => {
 			this.updateDom(this.config.fadeSpeed);
 		}, this.config.updateInterval * 1000);
 	},
 
-	socketNotificationReceived: function (notification, payload) {
+	socketNotificationReceived (notification, payload) {
 		if (notification === "GET_RANDOM_QUOTE_RESPONSE") {
-			Log.info("New quotes " + payload.length + " received.");
-			this.dataNotification = payload;
-			payload.forEach(element => {
-				//Log.info("New quotes: " + element.quote.replace("\n","").replace(element.author, ""));
-				var quoteDetail = { quote: element.quote.replace("\n", "").replace(element.author, ""), author: element.author };
-				this.quotes.push(quoteDetail);
-			});
+			if (payload.length == 0) {
+				console.error(`Module ${this.name}: 0 quotes received.`);
+				return;
+			}
+
+			var quoteDetail = { quote: payload[0].quote.replace("\n", "").replace(payload[0].author, ""), author: payload[0].author };
+			this.quotes.push(quoteDetail);
 			this.updateDom();
 		}
 	},
 
-	getRandomQuote: function () {
+	getRandomQuote () {
 
-		var index;
-		if (this.lastIndexUsed >= this.quotes.length - 1) {
+		this.lastIndexUsed++;
+		if (this.lastIndexUsed == this.quotes.length) {
 			var data = this.config;
 			this.sendSocketNotification("GET_RANDOM_QUOTE", data);
-			index = 0;
+			this.lastIndexUsed = this.quotes.length - 1;
+			if (this.quotes.length == 9000) this.lastIndexUsed = 0;
 		}
-		index = ++this.lastIndexUsed;
-
-		return this.quotes[index] || "";
+		return this.quotes[this.lastIndexUsed] || "";
 	},
 
-	getDom: function () {
+	getDom () {
 		var container = document.createElement("div");
 		const wrapper = document.createElement("div");
 
-		var quoteLineDiv = document.createElement('div');
+		var quoteLineDiv = document.createElement("div");
 		var quoteFontSize = this.getFontSize(this.config.quoteSize);
-		quoteLineDiv.className = "thin bright pre-line " + quoteFontSize;
+		quoteLineDiv.className = `thin bright pre-line ${quoteFontSize}`;
 
-		var authorLineDiv = document.createElement('div');
+		var authorLineDiv = document.createElement("div");
 		var authorFontSize = this.getFontSize(this.config.authorSize);
-		authorLineDiv.className = "thin bright pre-line " + authorFontSize;
+		authorLineDiv.className = `thin bright pre-line ${authorFontSize}`;
 
 		if (this.config.showSymbol) {
 			var symbol = document.createElement("span");
@@ -83,7 +81,7 @@ Module.register("MMM-RandomQuotes", {
 		}
 
 		var quoteText = this.getRandomQuote();
-		var quoteLineSpan = document.createElement('span');
+		var quoteLineSpan = document.createElement("span");
 		quoteLineSpan.innerHTML = quoteText.quote;
 		quoteLineDiv.appendChild(quoteLineSpan);
 
@@ -95,7 +93,7 @@ Module.register("MMM-RandomQuotes", {
 		container.appendChild(quoteLineDiv);
 
 		if (quoteText.author !== "" && quoteText.author !== null && quoteText.author !== undefined && quoteText.author !== "null") {
-			var authorLineSpan = document.createElement('span');
+			var authorLineSpan = document.createElement("span");
 			authorLineSpan.innerHTML = quoteText.author;
 			authorLineDiv.appendChild(authorLineSpan);
 			container.appendChild(authorLineDiv);
@@ -105,12 +103,9 @@ Module.register("MMM-RandomQuotes", {
 		return wrapper;
 	},
 
-	getFontSize : function(size){
-		if(size == "S")
-			return "small";
-		if(size == "L")
-			return "large";
-		else
-			return "medium";
+	getFontSize (size) {
+		if (size == "S") return "small";
+		if (size == "L") return "large";
+		else return "medium";
 	}
 });
