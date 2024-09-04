@@ -28,7 +28,7 @@ let config = {
                 fadeSpeed: 4000,
                 quoteSize: "M", // S M L - Default M
                 authorSize: "S", // S M L - Default S
-           		maxQuoteLenght: 180	// Max number of quote's characters
+                maxQuoteLenght: 180	// Max number of quote's characters
             },
         }
     ]
