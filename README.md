@@ -27,7 +27,8 @@ let config = {
                 showSymbol: true,
                 fadeSpeed: 4000,
                 quoteSize: "M", // S M L - Default M
-                authorSize: "S" // S M L - Default S
+                authorSize: "S", // S M L - Default S
+           		maxQuoteLenght: 180	// Max number of quote's characters
             },
         }
     ]
@@ -41,6 +42,7 @@ let config = {
 - `fadeSpeed`: How fast (in milliseconds) to fade out and back in when changing quotes.
 - `quoteSize`: Set the quote's font size (small, medium, large)
 - `authorSize`: Set the author's font size (small, medium, large)
+- `maxQuoteLenght`: Set the quote's max characters
 
 ## Example Screenshot
 
